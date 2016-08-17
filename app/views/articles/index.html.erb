@@ -6,6 +6,11 @@
       <div style="width: 800px">
         <h3>Title :<%= article.title %> </h3>
         <p><%= article.text %></p>
+        <a><%= link_to 'Show', article_path(article) %></a>
+        <a><%= link_to 'Edit', edit_article_path(article) %></a>
+        <a><%= link_to 'Destroy', article_path(article),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></a>
       </div>
       <hr width="500">
   <% end %>

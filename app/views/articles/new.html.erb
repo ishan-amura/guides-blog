@@ -1,21 +1,7 @@
 <p align="center">Here you can create new Articles</p>
 <div align="center">
-	<%= form_for :article, url: articles_path do |f| %>
-	  <p>
-	    <%= f.label :title %><br>
-	    <%= f.text_field :title %>
-	  </p>
-	 
-	  <p>
-	    <%= f.label :text %><br>
-	    <%= f.text_area :text %>
-	  </p>
-	 
-	  <p>
-	    <%= f.submit %>
-	  </p>
-	<% end %>
-<%= link_to 'Back', articles_path %>
+	<%= render 'form' %>
+	<%= link_to 'Back', articles_path %>
 </div>
 <style type="text/css">
 	#article_title , #article_text {
