@@ -2,9 +2,17 @@ class ArticlesController < ApplicationController
 	#http_basic_authenticate_with name: "admin", password: "admin", except: [:index, :show]
 	before_action :set_article, only: [:show, :edit, :update, :destroy]
 	def index 
-		@articles = Article.all
+		@articles = Article.all.order(created_at: :desc)
+		respond_to do |format|
+        format.html { render :index, notice: 'Article was successfully created.' }
+        format.json { render json: @articles, status: :created }
+    end
 	end
 	def show
+		respond_to do |format|
+        format.html { render @article, notice: 'Article was successfully created.' }
+        format.json { render json: @article, status: :created }
+    end
 	end
 	def new
 		@article = Article.new
@@ -16,7 +24,7 @@ class ArticlesController < ApplicationController
   	respond_to do |format|
       if @article.save
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
-        format.json { render :show, status: :created, location: @article }
+        format.json { render json: @article, status: :created, location: @article }
       else
         format.html { render :new }
         format.json { render json: @article.errors, status: :unprocessable_entity }

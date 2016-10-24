@@ -1,0 +1,14 @@
+//= require jquery
+//= require jquery_ujs
+//= require turbolinks
+//= require underscore
+//= require backbone/backbone
+//= require backbone.marionette/backbone.marionette
+//= require app/init
+//= require_tree ./app/models
+//= require_tree ./app/collections
+//= require_tree ./app/routers
+//= require_tree ./app/controllers
+//= require_tree ../templates
+//= require_tree ./app/views
+//= require app/main
